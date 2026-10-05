@@ -1,0 +1,14 @@
+name: Background Ping Task
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HTTP request using curl
+        run: |
+          curl -I "https://kuchenabluftreinigung.de"
